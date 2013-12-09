@@ -1,0 +1,15 @@
+{
+    "name": "raiony/treinamento2",
+    "description": "Treinamento Net On",
+    "type": "project",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Otávio Fernandes",
+            "email": "felipe@netonsolucoes.com.br"
+        }
+    ],
+    "require": {
+        "silex/silex": "1.1.x-dev"
+    }
+}
