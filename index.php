@@ -1,11 +1,38 @@
 <?php
 
-require_once __DIR__.'/../vendor/autoload.php';
+require_once "vendor/autoload.php";
 
 $app = new Silex\Application();
 
-$app->get('/hello/{name}', function($name) use($app) {
-return 'Hello '.$app->escape($name);
+$app['posts'] = array(
+    1 => array(
+        'titulo' => 'Artigo 1',
+        'texto' => 'materia do artigo1'
+
+    ),
+    2 => array(
+        'titulo' => 'Artigo 2',
+        'texto' => 'materia do artigo1'
+
+    ),
+    3 => array(
+        'titulo' => 'Artigo 3',
+        'texto' => 'materia do artigo1'
+
+    ));
+
+$app->register(new Silex\Provider\TwigServiceProvider(), array(
+    'twig.path' => 'views'
+));
+
+$app->get("/blog", function() use ($app){
+    return $app['twig']->render('posts.html', array(
+        'posts'=> $app['posts']
+    ));
+});
+
+$app->get("/contato", function() use ($app){
+    return $app['twig']->render('contato.html');
 });
 
 $app->run();
