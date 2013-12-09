@@ -25,7 +25,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => 'views'
 ));
 
-$app->get("/blog", function() use ($app){
+$app->get("/posts", function() use ($app){
     return $app['twig']->render('posts.html', array(
         'posts'=> $app['posts']
     ));
@@ -33,6 +33,16 @@ $app->get("/blog", function() use ($app){
 
 $app->get("/contato", function() use ($app){
     return $app['twig']->render('contato.html');
+});
+
+
+$app->get("/sobre", function() use ($app){
+    return $app['twig']->render('sobre.html');
+});
+
+
+$app->get("/home", function() use ($app){
+    return $app['twig']->render('index.html');
 });
 
 $app->run();
