@@ -1,0 +1,22 @@
+
+
+{% extends "ui/head.html"%}
+{% block content %}
+
+
+
+
+
+    <option value="">Todas as categorias</option>
+    <table border="1">
+        {% for lista in lista %}
+        <tr>
+            <td>{{lista.lista}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+
+
+{% endblock %}
